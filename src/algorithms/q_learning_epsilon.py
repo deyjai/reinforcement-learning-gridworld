@@ -19,7 +19,7 @@ Usage:
 """
 
 import numpy as np
-from warehouse_gridworld_domain_random import WarehouseGridWorld, ACTIONS
+from src.environment.warehouse_gridworld_domain_random import WarehouseGridWorld, ACTIONS
 
 # ──────────────────────────────────────────────
 # Hyperparameters (change these to experiment)

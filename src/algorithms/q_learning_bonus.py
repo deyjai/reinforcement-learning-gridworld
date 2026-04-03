@@ -1,6 +1,6 @@
 import numpy as np
+from src.environment.warehouse_gridworld_domain_random import WarehouseGridWorld, ACTIONS
 from collections import defaultdict
-from warehouse_gridworld_domain_random import WarehouseGridWorld, ACTIONS
 
 # Hyperparameters
 ALPHA = 0.1
