@@ -247,8 +247,8 @@ def main():
     plt.close()
 
     # ----- Visualize policies -----
-    visualize_policy(env1, agent1.q_table, title="Q-Learning")
-    visualize_policy(env2, Q2_dict, title="Q-Learning + Bonus")
+    visualize_policy(env1, agent1.q_table, title="Q-Learning", algorithm_name="Q-Learning (ε-greedy)")
+    visualize_policy(env2, Q2_dict, title="Q-Learning + Bonus", algorithm_name="Q-Learning + Bonus")
 
     print("\nRunning parameter sweeps (averaged rewards)...")
 

@@ -83,18 +83,25 @@ def plot_comparison(data1, data2, save_path=None,
     plt.close()
 
 
-def visualize_policy(env, Q, title=""):
+def visualize_policy(env, Q, title="", algorithm_name=None):
     """
     Visualize a learned policy with Pygame.
     Q can be either:
       - a NumPy array (2D tabular Q-table)
       - a dict keyed by state tuples
+    algorithm_name: optional string to display which algorithm is running
     """
     from src.environment.warehouse_gridworld_domain_random import setup_pygame, draw_grid, ACTIONS
 
     screen, clock, font, small_font = setup_pygame()
     state = env.reset()
     running = True
+
+    # Optional: set window title
+    if algorithm_name:
+        pygame.display.set_caption(f"{title} - {algorithm_name}")
+    else:
+        pygame.display.set_caption(title)
 
     print(f"\n=== {title} ===")
 
@@ -123,8 +130,14 @@ def visualize_policy(env, Q, title=""):
             if event.type == pygame.QUIT:
                 running = False
 
-        # Draw grid and update display
+        # Draw grid
         draw_grid(env, screen, font, small_font)
+
+        # Display algorithm name on screen
+        if algorithm_name:
+            text_surface = font.render(f"Algorithm: {algorithm_name}", True, (255, 255, 255))
+            screen.blit(text_surface, (10, 10))  # top-left corner
+
         pygame.display.flip()
         clock.tick(5)
 
