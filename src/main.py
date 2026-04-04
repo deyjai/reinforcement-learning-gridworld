@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*- 
 """
 main.py - Warehouse Robot Q-Learning Experiments
 
@@ -16,8 +16,6 @@ using Q-Learning. It performs the following:
    stability of the learned policies.
 
 Results, plots, and logs are saved under the `results/` directory.
-
-Note: The initial code template for main.py was generated with ChatGPT.
 """
 
 import os
@@ -260,10 +258,10 @@ def main():
     sweep_bonus_avg(env_bonus)
 
     # -----------------------------
-    # Robustness check (silent, at the end)
+    # Robustness check (3 random seeds at the end)
     # -----------------------------
-    print("\nRunning robustness check across multiple seeds...")
-    robustness_seeds = [42, 123, 999]  # seeds for robustness
+    print("\nRunning robustness check across 3 random seeds...")
+    robustness_seeds = [random.randint(0, 10000) for _ in range(3)]
     robustness_metrics_q = []
     robustness_metrics_bonus = []
 
