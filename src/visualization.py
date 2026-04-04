@@ -1,3 +1,25 @@
+"""
+visualization.py - Visualization Utilities for Warehouse Robot Q-Learning
+
+This module provides helper functions for visualizing experiment results and
+learned policies in the WarehouseGridWorld environment:
+
+1. `smooth(data, window=50)`:
+   - Smooths a data sequence using a moving average.
+
+2. `plot_comparison(data1, data2, ...)`:
+   - Plots two sequences (e.g., rewards or success counts) for comparison.
+   - Supports optional smoothing, labels, titles, and saving to a file.
+
+3. `visualize_policy(env, Q, title="")`:
+   - Visualizes a learned policy in Pygame.
+   - Supports Q-tables as either a NumPy array (2D tabular) or a dict keyed
+     by state tuples.
+   - Animates the agent's behavior step-by-step according to the greedy policy.
+
+Initial code template for this visualization was generated with ChatGPT.
+"""
+
 import numpy as np
 import matplotlib.pyplot as plt
 import pygame
@@ -10,19 +32,49 @@ def smooth(data, window=50):
     return np.convolve(data, np.ones(window) / window, mode='valid')
 
 
-def plot_comparison(rewards_q, rewards_bonus, save_path=None):
-    plt.figure()
+def plot_comparison(data1, data2, save_path=None,
+                    label1="Method 1", label2="Method 2",
+                    title=None, xlabel=None, ylabel=None,
+                    smooth_fn=None):
+    """
+    Plot two sequences for comparison.
+    
+    Parameters
+    ----------
+    data1 : list or np.array
+        First data sequence (e.g., rewards or success counts)
+    data2 : list or np.array
+        Second data sequence
+    save_path : str, optional
+        File path to save the plot
+    label1, label2 : str
+        Legend labels for the two sequences
+    title : str, optional
+        Plot title
+    xlabel, ylabel : str, optional
+        Axis labels
+    smooth_fn : callable, optional
+        Function to smooth data before plotting
+    """
+    plt.figure(figsize=(8, 5))
 
-    rewards_q_smooth = smooth(rewards_q)
-    rewards_bonus_smooth = smooth(rewards_bonus)
+    if smooth_fn:
+        y1 = smooth_fn(data1)
+        y2 = smooth_fn(data2)
+    else:
+        y1 = data1
+        y2 = data2
 
-    plt.plot(rewards_q_smooth, label="Q-Learning")
-    plt.plot(rewards_bonus_smooth, label="Q-Learning + Bonus")
-
-    plt.xlabel("Episode")
-    plt.ylabel("Total Reward")
-    plt.title("Learning Curve Comparison")
+    plt.plot(y1, label=label1)
+    plt.plot(y2, label=label2)
     plt.legend()
+
+    if title:
+        plt.title(title)
+    if xlabel:
+        plt.xlabel(xlabel)
+    if ylabel:
+        plt.ylabel(ylabel)
 
     if save_path:
         plt.savefig(save_path)
