@@ -1,4 +1,4 @@
-\# Warehouse Robot Q-Learning Experiments
+**Warehouse Robot Q-Learning Experiments**
 
 
 
@@ -6,7 +6,7 @@ This project is a comparative study of exploration strategies in Q-Learning:
 
 
 
-\- \*\*ε-Greedy Exploration\*\*  
+\- \*\*ε-Greedy Exploration\*\*
 
 \- \*\*Exploration Bonus\*\*
 
@@ -16,15 +16,15 @@ The experiments are performed in a \*\*Gridworld warehouse environment\*\*, with
 
 
 
-\- Reward tracking and convergence analysis  
+\- Reward tracking and convergence analysis
 
-\- Cumulative task success visualization  
+\- Cumulative task success visualization
 
-\- Policy evaluation using Pygame animations  
+\- Policy evaluation using Pygame animations
 
 
 
-\## Setup
+**Setup**
 
 
 
@@ -40,7 +40,7 @@ pip install -r requirements.txt
 
 
 
-\## Running the Project
+**Running the Project**
 
 
 
@@ -60,9 +60,9 @@ This will execute the experiments, generate plots, and launch Pygame visualizati
 
 
 
-\## Folder Structure
+**Folder Structure**
 
-.
+
 
 ├── src/
 
@@ -89,4 +89,6 @@ This will execute the experiments, generate plots, and launch Pygame visualizati
 ├── requirements.txt
 
 └── README.md
+
+
 
