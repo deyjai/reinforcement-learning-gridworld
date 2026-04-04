@@ -2,25 +2,7 @@
 
 
 
-This project is a comparative study of exploration strategies in Q-Learning:
-
-
-
-\- \*\*ε-Greedy Exploration\*\*
-
-\- \*\*Exploration Bonus\*\*
-
-
-
-The experiments are performed in a \*\*Gridworld warehouse environment\*\*, with:
-
-
-
-\- Reward tracking and convergence analysis
-
-\- Cumulative task success visualization
-
-\- Policy evaluation using Pygame animations
+This project is a comparative study of exploration strategies in Q-Learning.
 
 
 
