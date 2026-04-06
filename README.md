@@ -1,11 +1,3 @@
-**Warehouse Robot Q-Learning Experiments**
-
-
-
-This project is a comparative study of exploration strategies in Q-Learning.
-
-
-
 **Setup**
 
 
